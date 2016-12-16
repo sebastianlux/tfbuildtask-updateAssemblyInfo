@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Language="en-US" Id="UpdateAssemblyInfo" Publisher="SebastianLux" Version="0.1.0" />
+    <DisplayName>Update AssemblyInfo</DisplayName>
+    <GalleryFlags>Public</GalleryFlags>
+    <Description xml:space="preserve">Team Foundation build task for easy updating of AssemblyInfo files</Description>
+    <Categories>Build and release</Categories>
+    <Tags>build,continuous delivery,release,task,versioning</Tags>
+    <Properties></Properties>
+    <!--<Icon>extension-icon.png</Icon>-->
+    <PublisherDetails>
+      <DisplayName>Sebastian Lux</DisplayName>
+    </PublisherDetails>
+  </Metadata>
+  <Dependencies />
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Services" />
+  </Installation>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.Services.Content.Details" d:Source="File" Path="readme.md" Addressable="true" />
+    <Asset Type="Microsoft.VisualStudio.Services.Manifest" d:Source="File" Path="extension.vsomanifest" Addressable="true" />
+  </Assets>
+</PackageManifest>
