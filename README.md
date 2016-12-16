@@ -1,2 +1,2 @@
-# UpdateAssemblyInfo-Task
-Team Foundation build task for easy updating of AssemblyInfo files
+# tfbuildstep-updateAssemblyInfo
+Team Foundation Build (TFBuild) step for easy updating of assembly information
