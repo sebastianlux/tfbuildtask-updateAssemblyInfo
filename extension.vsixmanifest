@@ -12,6 +12,7 @@
       <Property Id="Microsoft.VisualStudio.Services.Links.Support" Value="https://github.com/SebastianLux/tfbuildstep-updateAssemblyInfo/issues" />
     </Properties>
     <Icon>extension-icon.png</Icon>
+    <License>LICENSE</License>
     <PublisherDetails>
       <DisplayName>Sebastian Lux</DisplayName>
     </PublisherDetails>

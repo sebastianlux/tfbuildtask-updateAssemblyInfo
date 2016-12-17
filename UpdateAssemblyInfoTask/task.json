@@ -26,7 +26,7 @@
                        "label":  "File pattern",
                        "defaultValue":  "AssemblyInfo.cs",
                        "required":  true,
-                       "helpMarkDown":  "File pattern to determine which files are updated. You can use wildcard like *AssembyInfo.cs"
+                       "helpMarkDown":  "File pattern to determine which files are updated. You can use wildcard like *AssembyInfo.cs."
                    },
                    {
                        "name":  "assemblyProduct",
