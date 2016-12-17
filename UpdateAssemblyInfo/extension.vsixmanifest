@@ -4,11 +4,11 @@
     <Identity Language="en-US" Id="UpdateAssemblyInfo" Publisher="SebastianLux" Version="0.1.0" />
     <DisplayName>Update AssemblyInfo</DisplayName>
     <GalleryFlags>Public</GalleryFlags>
-    <Description xml:space="preserve">Team Foundation build task for easy updating of AssemblyInfo files</Description>
+    <Description xml:space="preserve">Team Foundation Build (TFBuild) step for easy updating of assembly information</Description>
     <Categories>Build and release</Categories>
     <Tags>build,continuous delivery,release,task,versioning</Tags>
     <Properties></Properties>
-    <!--<Icon>extension-icon.png</Icon>-->
+    <Icon>extension-icon.png</Icon>
     <PublisherDetails>
       <DisplayName>Sebastian Lux</DisplayName>
     </PublisherDetails>
@@ -18,6 +18,7 @@
     <InstallationTarget Id="Microsoft.VisualStudio.Services" />
   </Installation>
   <Assets>
+    <Asset Type="Microsoft.VisualStudio.Services.Icons.Default" d:Source="File" Path="extension-icon.png" Addressable="true" />
     <Asset Type="Microsoft.VisualStudio.Services.Content.Details" d:Source="File" Path="readme.md" Addressable="true" />
     <Asset Type="Microsoft.VisualStudio.Services.Manifest" d:Source="File" Path="extension.vsomanifest" Addressable="true" />
   </Assets>
