@@ -7,7 +7,10 @@
     <Description xml:space="preserve">Team Foundation Build (TFBuild) step for easy updating of assembly information</Description>
     <Categories>Build and release</Categories>
     <Tags>build,continuous delivery,release,task,versioning</Tags>
-    <Properties></Properties>
+    <Properties>
+      <Property Id="Microsoft.VisualStudio.Services.Links.License" Value="https://github.com/SebastianLux/tfbuildstep-updateAssemblyInfo/blob/master/LICENSE" />
+      <Property Id="Microsoft.VisualStudio.Services.Links.Support" Value="https://github.com/SebastianLux/tfbuildstep-updateAssemblyInfo/issues" />
+    </Properties>
     <Icon>extension-icon.png</Icon>
     <PublisherDetails>
       <DisplayName>Sebastian Lux</DisplayName>
