@@ -1,4 +1,4 @@
-# tfbuildstep-updateAssemblyInfo
+# Introduction
 Team Foundation Build (TFBuild) step for easy updating of assembly information.
 
 This build step updates all AssemblyInfo files while your build is running.
