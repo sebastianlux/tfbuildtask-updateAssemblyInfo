@@ -37,7 +37,6 @@
                 "uri": "https://github.com/SebastianLux/tfbuildtask-updateAssemblyInfo/issues"
             }
         },
-
         "contributions": [
             {
             "id": "UpdateAssemblyInfo-task",
@@ -47,7 +46,7 @@
             ],
             "properties": {
                 "name": "UpdateAssemblyInfoTask"
-            }
+                }
             }
         ],
         "scopes": [],
@@ -60,6 +59,6 @@
             },
             {
                 "path": "readme.md", "addressable": true
-            },
+            }
         ]
  }
