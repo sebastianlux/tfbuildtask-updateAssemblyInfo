@@ -18,6 +18,7 @@
 x64/
 x86/
 bld/
+[Bb]in/
 [Oo]bj/
 [Ll]og/
 
@@ -252,3 +253,6 @@ paket-files/
 
 # vscode folder
 .vscode/
+
+# vsix files
+*.vsix
