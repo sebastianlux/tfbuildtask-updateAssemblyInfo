@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Language="en-US" Id="UpdateAssemblyInfo" Publisher="SebastianLux" Version="0.1.0" />
+    <Identity Language="en-US" Id="UpdateAssemblyInfo" Publisher="SebastianLux" Version="1.0.0" />
     <DisplayName>Update AssemblyInfo</DisplayName>
     <GalleryFlags>Public</GalleryFlags>
-    <Description xml:space="preserve">Team Foundation Build (TFBuild) step for easy updating of assembly information</Description>
+    <Description xml:space="preserve">Team Foundation Build (TFBuild) task for easy updating of assembly information</Description>
     <Categories>Build and release</Categories>
     <Tags>build,continuous delivery,release,task,versioning</Tags>
     <Properties>
-      <Property Id="Microsoft.VisualStudio.Services.Links.Support" Value="https://github.com/SebastianLux/tfbuildstep-updateAssemblyInfo/issues" />
+      <Property Id="Microsoft.VisualStudio.Services.Links.Support" Value="https://github.com/SebastianLux/tfbuildtask-updateAssemblyInfo/issues" />
     </Properties>
     <Icon>extension-icon.png</Icon>
     <PublisherDetails>
