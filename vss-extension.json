@@ -22,7 +22,7 @@
             "versioning"
         ],
         "icons": {
-            "default": "extension-icon.png"
+            "default": "img/extension-icon.png"
         },
         "content": {
             "details": {
@@ -53,7 +53,7 @@
         "scopes": [],
         "files": [
             {
-                "path": "img/configuration.png", "addressable": true
+                "path": "img", "addressable": true
             },
             {
                 "path": "UpdateAssemblyInfoTask", "addressable": true
@@ -61,8 +61,5 @@
             {
                 "path": "readme.md", "addressable": true
             },
-            {
-                "path": "extension-icon.png", "addressable": true
-            }
         ]
  }
