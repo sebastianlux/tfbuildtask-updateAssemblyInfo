@@ -16,7 +16,7 @@ For example, you can use _GitVersion.exe_ to calculate the next version number a
 3. Select the task `Update AssemblyInfo` within the `build` category and press `Add`
 4. Move the task to the appropriate position via drag&drop (first position is always good :) )
 5. Select the task and configure the attributes you want to update:
-![buildtask-configuration](images/configuration.png)
+![buildtask-configuration](img/configuration.png)
 
 If an attribute is not configured (left empty) in the build task configuration, it will be skipped for update and therefore the original value will be kept.
 
