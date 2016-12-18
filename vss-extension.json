@@ -1,0 +1,68 @@
+ {
+        "manifestVersion": 1,
+        "id": "UpdateAssemblyInfo",
+        "version": "1.0.0",
+        "name": "Update AssemblyInfo",
+        "author": "Sebastian Lux",
+        "description": "Team Foundation Build (TFBuild) task for easy updating of assembly information",
+        "publisher": "SebastianLux",
+        "targets": [
+            {
+                "id": "Microsoft.VisualStudio.Services"
+                }
+            ],
+        "categories": [
+            "Build and release"
+        ],
+        "tags": [
+            "build",
+            "continuous delivery",
+            "release",
+            "task",
+            "versioning"
+        ],
+        "icons": {
+            "default": "extension-icon.png"
+        },
+        "content": {
+            "details": {
+                "path": "readme.md"
+            }
+        },
+        "links":{
+            "home": {
+                "uri": "https://github.com/SebastianLux/tfbuildtask-updateAssemblyInfo/"
+            },
+            "issues": {
+                "uri": "https://github.com/SebastianLux/tfbuildtask-updateAssemblyInfo/issues"
+            }
+        },
+
+        "contributions": [
+            {
+            "id": "UpdateAssemblyInfo-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "UpdateAssemblyInfoTask"
+            }
+            }
+        ],
+        "scopes": [],
+        "files": [
+            {
+                "path": "img/configuration.png", "addressable": true
+            },
+            {
+                "path": "UpdateAssemblyInfoTask", "addressable": true
+            },
+            {
+                "path": "readme.md", "addressable": true
+            },
+            {
+                "path": "extension-icon.png", "addressable": true
+            }
+        ]
+ }
