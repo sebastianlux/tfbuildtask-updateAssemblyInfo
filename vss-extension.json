@@ -6,6 +6,7 @@
         "author": "Sebastian Lux",
         "description": "Team Foundation Build (TFBuild) task for easy updating of assembly information",
         "publisher": "SebastianLux",
+        "public": true,
         "targets": [
             {
                 "id": "Microsoft.VisualStudio.Services"
