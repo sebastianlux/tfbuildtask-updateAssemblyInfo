@@ -10,6 +10,9 @@ For example, you can use _GitVersion.exe_ to calculate the next version number a
 (yes, _GitVersion.exe_ also offers an AssemblyInfo update mechanism, but it does currently not let you define the schema of the _Version_ and `FileVersion_ attribute). 
 
 # Release Notes
+## 1.1.1
+- Fixed layout of readme.md
+
 ## 1.1.0
 - Added _AssemblyDescription_ attribute to the list of attributes which can be updated during build process
 
