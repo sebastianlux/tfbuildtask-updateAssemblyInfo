@@ -7,7 +7,7 @@
     "category":  "Build",
     "version":  {
                     "Major":  1,
-                    "Minor":  0,
+                    "Minor":  1,
                     "Patch":  0
                 },
     "instanceNameFormat":  "Update $(filePattern) files: $(rootFolder)",
@@ -35,6 +35,14 @@
                        "defaultValue":  "",
                        "required":  false,
                        "helpMarkDown":  "Update the AssemblyProduct attribute with this value. If left empty, original value will be kept."
+                   },
+                   {
+                       "name":  "assemblyDescription",
+                       "type":  "string",
+                       "label":  "Description",
+                       "defaultValue":  "",
+                       "required":  false,
+                       "helpMarkDown":  "Update the AssemblyDescription attribute with this value. If left empty, original value will be kept. This can be used to add product specific information to the description e.g. additional version information."
                    },
                    {
                        "name":  "assemblyCopyright",

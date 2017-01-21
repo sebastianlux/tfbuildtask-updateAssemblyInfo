@@ -2,6 +2,7 @@
     [string]$rootFolder = $(get-location).Path,
     [string]$filePattern,
     [string]$assemblyProduct,
+    [string]$assemblyDescription,
     [string]$assemblyCopyright,
     [string]$assemblyCompany,
     [string]$assemblyTrademark,
@@ -15,6 +16,7 @@
 Write-Host ("Root folder: " + $rootFolder)
 Write-Host ("File pattern: " + $filePattern)
 Write-Host ("Product: " + $assemblyProduct)
+Write-Host ("Description: " + $assemblyDescription)
 Write-Host ("Copyright: " + $assemblyCopyright)
 Write-Host ("Company: " + $assemblyCompany)
 Write-Host ("Trademark: " + $assemblyTrademark)
@@ -33,6 +35,7 @@ function UpdateAssemblyInfo()
         $fileContent = Get-Content $file.FullName -encoding utf8
 
         $fileContent = TryReplace "AssemblyProduct" $assemblyProduct;
+        $fileContent = TryReplace "AssemblyDescription" $assemblyDescription;
         $fileContent = TryReplace "AssemblyCopyright" $assemblyCopyright;
         $fileContent = TryReplace "AssemblyCompany" $assemblyCompany;
         $fileContent = TryReplace "AssemblyTrademark" $assemblyTrademark;
