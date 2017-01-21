@@ -11,7 +11,8 @@ For example, you can use _GitVersion.exe_ to calculate the next version number a
 
 # Release Notes
 ## 1.1.0
-- Added _AssemblyDescription_ attribute to the list of attributes which can be changed during build process
+- Added _AssemblyDescription_ attribute to the list of attributes which can be updated during build process
+
 ## 1.0.0
 - Initial version
 
