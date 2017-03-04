@@ -7,16 +7,19 @@ Just leave them as they are and let the build process do the work.
 
 The build task can also be very helpful if you want to update your version number automatically.
 For example, you can use _GitVersion.exe_ to calculate the next version number and then use this build task to add it to each _AssemblyInfo_ file
-(yes, _GitVersion.exe_ also offers an AssemblyInfo update mechanism, but it does currently not let you define the schema of the _Version_ and `FileVersion_ attribute). 
+(yes, _GitVersion.exe_ also offers an AssemblyInfo update mechanism, but it does currently not let you define the schema of the *Version* and *FileVersion* attribute). 
 
 # Release Notes
-## 1.1.0
+## 1.1.1 (Mar-2017)
+- Fixed a issue where projects did not build properly when AssemblyInfo attributes were replaced with content containing an escape character.
+
+## 1.1.0 (Jan-2017)
 - Added _AssemblyDescription_ attribute to the list of attributes which can be updated during build process
 
-## 1.0.0
+## 1.0.0 (Dec-2016)
 - Initial version
 
-# Configuration
+# Getting Started
 1. Go to your build definition and edit it
 2. Press `Add build Step` to open the task catalogue
 3. Select the task `Update AssemblyInfo` within the `build` category and press `Add`
@@ -24,11 +27,11 @@ For example, you can use _GitVersion.exe_ to calculate the next version number a
 5. Select the task and configure the attributes you want to update:
 ![buildtask-configuration](img/configuration.png)
 
-If an attribute is not configured (left empty) in the build task configuration, it will be skipped for update and therefore the original value will be kept.
+If an attribute is not configured (left empty) in the build task configuration, it will be skipped for update and therefore the original value will be kept.  
 
 If a file does not contain a specific attribute, the attribute is not added to the file. This is to prevent a build failure in case of projects with multiple _AssemblyInfo_ files.
 
-# Which Files are Updated
+
 The build task updates all files that match the `File pattern`  in the `Root folder` recursive. 
 
 If the file pattern is left empty, the build task updates all _AssemblyInfo.cs_ and _AssemblyInfo.vb_ files.

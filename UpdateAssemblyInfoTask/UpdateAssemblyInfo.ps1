@@ -54,7 +54,7 @@ function TryReplace($attributeName, $value)
 {
     if($value)
     {
-        $attribute = $attributeName + '("' + $value + '")';
+        $attribute = $attributeName + '(@"' + $value + '")';
         $fileContent = $fileContent -replace ($attributeName +'\(".*"\)'), $attribute
     }
 
