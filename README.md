@@ -10,13 +10,16 @@ For example, you can use _GitVersion.exe_ to calculate the next version number a
 (yes, _GitVersion.exe_ also offers an AssemblyInfo update mechanism, but it does currently not let you define the schema of the *Version* and *FileVersion* attribute). 
 
 # Release Notes
-## 1.1.1 (Mar-2017)
+## 1.1.2 (11-Mar-2017)
+- Fixed an issue where Visual Basic projects did not build properly due to invalid AssemblyInfo attribute content.
+
+## 1.1.1 (04-Mar-2017)
 - Fixed a issue where projects did not build properly when AssemblyInfo attributes were replaced with content containing an escape character.
 
-## 1.1.0 (Jan-2017)
+## 1.1.0 (21-Jan-2017)
 - Added _AssemblyDescription_ attribute to the list of attributes which can be updated during build process
 
-## 1.0.0 (Dec-2016)
+## 1.0.0 (19-Dec-2016)
 - Initial version
 
 # Getting Started
@@ -25,7 +28,7 @@ For example, you can use _GitVersion.exe_ to calculate the next version number a
 3. Select the task `Update AssemblyInfo` within the `build` category and press `Add`
 4. Move the task to the appropriate position via drag&drop (first position is always good :) )
 5. Select the task and configure the attributes you want to update:
-![buildtask-configuration](img/configuration.png)
+![buildtask-configuration](img/configuration.gif)
 
 If an attribute is not configured (left empty) in the build task configuration, it will be skipped for update and therefore the original value will be kept.  
 

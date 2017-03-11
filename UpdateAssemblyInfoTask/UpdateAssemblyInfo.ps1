@@ -30,6 +30,7 @@ function UpdateAssemblyInfo()
     foreach ($file in $input) 
     {
         Write-Host ($file.FullName)
+
         $tmpFile = $file.FullName + ".tmp"
 
         $fileContent = Get-Content $file.FullName -encoding utf8
@@ -54,8 +55,16 @@ function TryReplace($attributeName, $value)
 {
     if($value)
     {
-        $attribute = $attributeName + '(@"' + $value + '")';
-        $fileContent = $fileContent -replace ($attributeName +'\(".*"\)'), $attribute
+        if($file.Extension -eq ".vb")
+        {
+                $attribute = $attributeName + '("' + $value + '")';
+        }
+        else
+        {
+                $attribute = $attributeName + '(@"' + $value + '")';
+        }
+
+        $fileContent = $fileContent -replace ($attributeName +'\(@{0,1}".*"\)'), $attribute
     }
 
     return $fileContent
@@ -87,6 +96,6 @@ function ValidateParams()
 
 if(ValidateParams)
 {
-    Write-Host ("Updating all files recursive...")
+    Write-Host ("Updating files...")
     Get-Childitem -Path $rootFolder -recurse |? {$_.Name -like $filePattern} | UpdateAssemblyInfo; 
 }

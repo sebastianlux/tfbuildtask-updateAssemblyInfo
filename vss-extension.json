@@ -1,7 +1,7 @@
  {
         "manifestVersion": 1,
         "id": "UpdateAssemblyInfo",
-        "version": "1.1.1",
+        "version": "1.1.2",
         "name": "Update AssemblyInfo",
         "author": "Sebastian Lux",
         "description": "Team Foundation Build (TFBuild) task for easy updating of assembly information",
