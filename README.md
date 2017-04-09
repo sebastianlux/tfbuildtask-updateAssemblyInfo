@@ -10,6 +10,10 @@ For example, you can use _GitVersion.exe_ to calculate the next version number a
 (yes, _GitVersion.exe_ also offers an AssemblyInfo update mechanism, but it does currently not let you define the schema of the *Version* and *FileVersion* attribute). 
 
 # Release Notes
+## 1.2.0 (09-Apr-2017)
+- Added a *Custom attributes* field to update assembly attributes based on key-value pairs
+- Improved logging to powershell console during build process
+
 ## 1.1.2 (11-Mar-2017)
 - Fixed an issue where Visual Basic projects did not build properly due to invalid AssemblyInfo attribute content.
 
@@ -44,3 +48,5 @@ In case you have a _GlobalAssemblyInfo_ file, you can adjust the `File pattern` 
 If you only want to update specific files, you can adjust the `Root folder` accordingly.
 
 It is also possible to add the build task multiple times to update different files with different content.
+
+You can also update any other assembly attribute via the *Custom attributes* field using the pattern 'AssemblyAttribute=value', each key-value pair separated by a semicolon (e.g. 'FirstNameAssemblyAttribute=John;LastNameAssemblyAttribute=Doe').
