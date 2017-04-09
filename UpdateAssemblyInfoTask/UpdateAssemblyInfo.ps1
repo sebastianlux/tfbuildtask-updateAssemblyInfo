@@ -9,8 +9,13 @@
     [string]$assemblyConfiguration,
     [string]$assemblyVersion, 
     [string]$assemblyFileVersion, 
-    [string]$assemblyInformationalVersion
+    [string]$assemblyInformationalVersion,
+    [string]$customAttributes
 )
+
+Write-Host ([Environment]::NewLine)
+Write-Host ("Paramters:")
+Write-Host ("----------")
 
 # Write all params to the console.
 Write-Host ("Root folder: " + $rootFolder)
@@ -24,17 +29,24 @@ Write-Host ("Configuration: " + $assemblyConfiguration)
 Write-Host ("Version: " + $assemblyVersion)
 Write-Host ("File version: " + $assemblyFileVersion)
 Write-Host ("InformationalVersion: " + $assemblyInformationalVersion)
+Write-Host ("Custom attributes: " + $customAttributes)
 
 function UpdateAssemblyInfo()
 {
+    Write-Host ([Environment]::NewLine)
+    Write-Host ("Searching for files...")
+    Write-Host ([Environment]::NewLine)
+
     foreach ($file in $input) 
     {
-        Write-Host ($file.FullName)
+        
+        Write-Host ("File found: " + $file.FullName)
 
         $tmpFile = $file.FullName + ".tmp"
 
         $fileContent = Get-Content $file.FullName -encoding utf8
 
+        Write-Host("Writing attributes...")
         $fileContent = TryReplace "AssemblyProduct" $assemblyProduct;
         $fileContent = TryReplace "AssemblyDescription" $assemblyDescription;
         $fileContent = TryReplace "AssemblyCopyright" $assemblyCopyright;
@@ -45,10 +57,23 @@ function UpdateAssemblyInfo()
         $fileContent = TryReplace "AssemblyFileVersion" $assemblyFileVersion;
         $fileContent = TryReplace "AssemblyInformationalVersion" $assemblyInformationalVersion;
         
+        if($customAttributes)
+        {
+            Write-Host("Writing custom attributes...")
+            $fileContent = WriteCustomAttributes $customAttributes;
+        }
+
+        Write-Host("Saving changes...")
+
         Set-Content $tmpFile -value $fileContent -encoding utf8
     
         Move-Item $tmpFile $file.FullName -force
+
+        Write-Host("Update of " + $file.FullName + " successful")
+        Write-Host ([Environment]::NewLine)
     }
+
+    Write-Host("Done!")
 }
 
 function TryReplace($attributeName, $value)
@@ -57,11 +82,11 @@ function TryReplace($attributeName, $value)
     {
         if($file.Extension -eq ".vb")
         {
-                $attribute = $attributeName + '("' + $value + '")';
+            $attribute = $attributeName + '("' + $value + '")';
         }
         else
         {
-                $attribute = $attributeName + '(@"' + $value + '")';
+            $attribute = $attributeName + '(@"' + $value + '")';
         }
 
         $fileContent = $fileContent -replace ($attributeName +'\(@{0,1}".*"\)'), $attribute
@@ -72,7 +97,7 @@ function TryReplace($attributeName, $value)
 
 function ValidateVersionString($versionString)
 {
-    $versionStringRegex= [System.Text.RegularExpressions.Regex]::Match($versionString, "^[0-9]+(\.[0-9]+){1,3}$");
+    $versionStringRegex = [System.Text.RegularExpressions.Regex]::Match($versionString, "^[0-9]+(\.[0-9]+){1,3}$");
 
     return $versionStringRegex.Success;
 }
@@ -94,8 +119,19 @@ function ValidateParams()
     return $true
  }
 
+function WriteCustomAttributes($customAttributes)
+{
+    foreach($customAttribute in ($customAttributes -split ';'))
+    {
+        $customAttributeKey, $customAttributeValue = $customAttribute.Split('=')
+      
+        $fileContent = TryReplace $customAttributeKey $customAttributeValue
+    }
+
+    return $fileContent
+}
+
 if(ValidateParams)
 {
-    Write-Host ("Updating files...")
     Get-Childitem -Path $rootFolder -recurse |? {$_.Name -like $filePattern} | UpdateAssemblyInfo; 
 }
