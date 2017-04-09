@@ -99,6 +99,14 @@
                        "defaultValue":  "",
                        "required":  false,
                        "helpMarkDown":  "Update the AssemblyInformationalVersion attribute with this value. If left empty, original value will be kept."
+                   },
+                   {
+                       "name":  "customAttributes",
+                       "type":  "string",
+                       "label":  "Custom attributes",
+                       "defaultValue":  "",
+                       "required":  false,
+                       "helpMarkDown":  "Update custom attributes using the pattern 'AssemblyAttribute=value', each key-value pair separated by a semicolon (e.g. 'FirstNameAssemblyAttribute=John;LastNameAssemblyAttribute=Doe')."
                    }
                ],
     "execution":  {
