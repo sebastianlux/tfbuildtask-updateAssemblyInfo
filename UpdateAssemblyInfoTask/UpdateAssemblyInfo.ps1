@@ -14,7 +14,7 @@
 )
 
 Write-Host ([Environment]::NewLine)
-Write-Host ("Paramters:")
+Write-Host ("Parameters:")
 Write-Host ("----------")
 
 # Write all params to the console.
@@ -35,18 +35,20 @@ function UpdateAssemblyInfo()
 {
     Write-Host ([Environment]::NewLine)
     Write-Host ("Searching for files...")
-    Write-Host ([Environment]::NewLine)
+    Write-Host("============================================================")
 
     foreach ($file in $input) 
     {
         
-        Write-Host ("File found: " + $file.FullName)
+        Write-Host ($file.FullName)
 
         $tmpFile = $file.FullName + ".tmp"
 
         $fileContent = Get-Content $file.FullName -encoding utf8
 
-        Write-Host("Writing attributes...")
+        Write-Host ([Environment]::NewLine)
+        Write-Host("Updating attributes")
+        Write-Host("-------------------")
         $fileContent = TryReplace "AssemblyProduct" $assemblyProduct;
         $fileContent = TryReplace "AssemblyDescription" $assemblyDescription;
         $fileContent = TryReplace "AssemblyCopyright" $assemblyCopyright;
@@ -59,37 +61,56 @@ function UpdateAssemblyInfo()
         
         if($customAttributes)
         {
-            Write-Host("Writing custom attributes...")
+            Write-Host ([Environment]::NewLine)
+            Write-Host("Updating custom attributes")
+            Write-Host("--------------------------")
             $fileContent = WriteCustomAttributes $customAttributes;
         }
 
+        Write-Host ([Environment]::NewLine)
         Write-Host("Saving changes...")
 
         Set-Content $tmpFile -value $fileContent -encoding utf8
     
         Move-Item $tmpFile $file.FullName -force
 
-        Write-Host("Update of " + $file.FullName + " successful")
+        Write-Host ([Environment]::NewLine)
+        Write-Host("============================================================")
         Write-Host ([Environment]::NewLine)
     }
 
     Write-Host("Done!")
 }
 
-function TryReplace($attributeName, $value)
+function TryReplace($attributeKey, $value)
 {
     if($value)
     {
-        if($file.Extension -eq ".vb")
+        $containsAttributeKey = $fileContent | %{$_ -match $attributeKey}
+
+        If($containsAttributeKey -contains $true)
         {
-            $attribute = $attributeName + '("' + $value + '")';
+            Write-Host("Updating '$attributeKey'...")
+
+            if($file.Extension -eq ".vb")
+            {
+                $attribute = $attributeKey + '("' + $value + '")';
+            }
+            else
+            {
+                $attribute = $attributeKey + '(@"' + $value + '")';
+            }
+
+            $fileContent = $fileContent -replace ($attributeKey +'\(@{0,1}".*"\)'), $attribute
         }
         else
         {
-            $attribute = $attributeName + '(@"' + $value + '")';
+            Write-Host("Skipped '$attributeKey' (not found in file)")
         }
-
-        $fileContent = $fileContent -replace ($attributeName +'\(@{0,1}".*"\)'), $attribute
+    }
+    else
+    {
+        Write-Host("Skipped '$attributeKey' (no value defined)")
     }
 
     return $fileContent
